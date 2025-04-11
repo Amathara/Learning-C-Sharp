@@ -7,7 +7,9 @@ namespace Exception_and_Persistence
     {
         static void Main(string[] args)
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            
+
+            Console.OutputEncoding = System.Text.Encoding.UTF8;// for emojis.
 
 
 
@@ -33,14 +35,14 @@ namespace Exception_and_Persistence
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Welcome to the World of Plants!");
             Console.ResetColor();
-
             
+
             // Call DisplayPlantInfoTop only once
             if (plants.Count > 0)
             {
                 plants[0].DisplayPlantInfoTop(); // Call DisplayPlantInfoTop for the first plant
             }
-
+            
             // Serialize and write plants to file using JsonFileHandler
             JsonFileHandler.WritePlantsToFile("plantList.json", plants);
 
@@ -97,6 +99,8 @@ namespace Exception_and_Persistence
                     Console.ResetColor();
                 }
             }
+            
+
             Console.ReadLine();
         }
     }
