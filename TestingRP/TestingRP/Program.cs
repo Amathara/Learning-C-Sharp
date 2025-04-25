@@ -11,7 +11,7 @@ namespace TestingRP
         static void Main(string[] args)
         {
             // Opret en instans af vores konkrete repository
-            ICreatureRepository creatureRepository = new InMemoryCreatureRepository();
+            ICreatureRepository creatureRepository = new FileCreatureRepository("creatures.json");
 
             // Tilføj nogle personer via repository'et
             creatureRepository.Add(new Creature { Name = "Al", Type = "Phoenix", Age = 300 });
