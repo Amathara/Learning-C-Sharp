@@ -5,6 +5,8 @@ using System.Linq;
 using System;
 using TestingRP.Classes;
 using TestingRP.RepositoryPattern.Classes;
+using TestingRP.RepositoryPattern.Interfaces;
+
 
 namespace MSTestRP
 {
@@ -31,7 +33,7 @@ namespace MSTestRP
         }
 
         [TestMethod]
-        public void GetAll_ShouldReturnAllPeople()
+        public void GetAll_ShouldReturnAllCreatues()
         {
             // Arrange
             var repo = new InMemoryCreatureRepository();
@@ -44,10 +46,10 @@ namespace MSTestRP
             // Assert
             Assert.AreEqual(2, result.Count);
             Assert.AreEqual("Al", result[0].Name);
-            Assert.AreEqual("Phoenix", result.Type);
+            Assert.AreEqual("Phoenix", result[0].Type);
             Assert.AreEqual(300, result[0].Age);
             Assert.AreEqual("Bob", result[1].Name);
-            Assert.AreEqual("Spider", result.Type);
+            Assert.AreEqual("Spider", result[0].Type);
             Assert.AreEqual(2, result[1].Age);
         }
 
