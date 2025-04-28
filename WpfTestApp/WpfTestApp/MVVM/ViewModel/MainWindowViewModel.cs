@@ -6,9 +6,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using WpfTestApp.Model;
+using WpfTestApp.MVVM.Model;
 
-namespace WpfTestApp.ViewModel
+namespace WpfTestApp.MVVM.ViewModel
 {
     internal class MainWindowViewModel : ViewModelBase
     {

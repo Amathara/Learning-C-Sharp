@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfTestApp.Model
+namespace WpfTestApp.MVVM.Model
 {
     internal class Item
     {
