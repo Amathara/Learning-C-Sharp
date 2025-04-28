@@ -9,8 +9,14 @@ namespace WpfTestApp.Model
     internal class Item
     {
         public string Name { get; set; }
-        public string ID { get; set; }
+        public string Id { get; set; }
         public int Quantity { get; set; }
 
+        public Item (string name, string id, int quantity)
+        {
+            Name = name;
+            Id = id;
+            Quantity = quantity;
+        }
     }
 }
