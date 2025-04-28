@@ -12,11 +12,11 @@ namespace WpfTestApp.MVVM.Model
         public string Id { get; set; }
         public int Quantity { get; set; }
 
-        public Item (string name, string id, int quantity)
-        {
-            Name = name;
-            Id = id;
-            Quantity = quantity;
-        }
+        //public Item (string name, string id, int quantity)
+        //{
+        //    Name = name;
+        //    Id = id;
+        //    Quantity = quantity;
+        //}
     }
 }

@@ -14,12 +14,10 @@ namespace WpfTestApp.MVVM.ViewModel
     {
        public ObservableCollection<Item> Items { get; set; }
 
+        public RelayCommand AddCommand => new RelayCommand(execute => AddItem());
         public MainWindowViewModel()
         {
             Items = new ObservableCollection<Item>();
-            Items.Add(new Item("Book 1", "B0001", 4));
-            Items.Add(new Item("Book 2", "B0002", 6));
-            Items.Add(new Item("Boardgame 1", "BG0001", 10));
         }
 
 
@@ -37,6 +35,14 @@ namespace WpfTestApp.MVVM.ViewModel
             }
         }
 
-      
+      private void AddItem()
+        {
+            Items.Add(new Item
+            {
+                Name="New Item",
+                Id="AA0000",
+                Quantity=0
+            });
+        }
     }
 }

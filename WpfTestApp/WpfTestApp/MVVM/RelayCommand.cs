@@ -9,17 +9,28 @@ namespace WpfTestApp.MVVM
 {
     internal class RelayCommand : ICommand
     {
+        private Action<object> execute;// Function call
+        private Func<object, bool> canExecute; // FUNK! returns value of the type specified by the bool parameter.
+        public event EventHandler? CanExecuteChanged 
+        { 
+        add { CommandManager.RequerySuggested += value; }
+        remove { CommandManager.RequerySuggested -= value; }
+        }
 
-        public event EventHandler? CanExecuteChanged;
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        {
+            this.execute = execute;
+            this.canExecute = canExecute;
+        }
 
         public bool CanExecute(object? parameter)
         {
-            throw new NotImplementedException();
+            return canExecute == null || canExecute(parameter);
         }
 
         public void Execute(object? parameter)
         {
-            throw new NotImplementedException();
+            execute(parameter);
         }
 
 
