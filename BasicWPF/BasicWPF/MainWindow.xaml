@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BasicWPF"
+        xmlns:wpfAnimatedGif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="E:\\Downloads\Stars.png" />
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -21,5 +25,17 @@
                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Button Name ="btnOpenFile" Content="Open File" HorizontalAlignment="Center" Margin="0,114,0,0" Grid.Row="1" VerticalAlignment="Top"
                 Click="btnOpenFile_Click"/>
+        <Button Name ="btnOpenImage" Content="Open PNG" HorizontalAlignment="Left" Margin="49,10,0,0" Grid.Row="2" VerticalAlignment="Top" Background="#e3cdc7"
+        Click="btnOpenImage_Click"/>
+        <Button Name ="btnOpenGif" Content="Open GIF" HorizontalAlignment="Left" Margin="670,10,0,0" Grid.Row="2" VerticalAlignment="Top" Background="#ef4c8a"
+Click="btnOpenGif_Click"/>
+
+        <Image HorizontalAlignment="Left" Height="150" Margin="20,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" Source="{Binding BoundImage}" Grid.RowSpan="2" />
+        <Image Name ="GifImageControl" HorizontalAlignment="Left" Height="150" Margin="631,0,0,0" VerticalAlignment="Top" Width="150"  Grid.Row="1" Grid.RowSpan="2" />
+
+
+
+
+
     </Grid>
 </Window>
