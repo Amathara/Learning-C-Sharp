@@ -19,6 +19,7 @@
 
         <TextBlock Grid.Row="2" Name="tbResult" FontSize="16" Text="{Binding BoundText}"
                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="485,0,0,0" Grid.Row="1" VerticalAlignment="Center"/>
+        <Button Name ="btnOpenFile" Content="Open File" HorizontalAlignment="Center" Margin="0,114,0,0" Grid.Row="1" VerticalAlignment="Top"
+                Click="btnOpenFile_Click"/>
     </Grid>
 </Window>

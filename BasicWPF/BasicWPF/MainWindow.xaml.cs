@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace BasicWPF
 {
@@ -40,8 +41,8 @@ namespace BasicWPF
         }
         private void btnSet_Click(object sender, RoutedEventArgs e)
         {
-            
-           MessageBoxResult result = MessageBox.Show("Vil du skrive den tekst?", "PAS PÅ!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            MessageBoxResult result = MessageBox.Show("Vil du skrive den tekst?", "PAS PÅ!", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
                 BoundText = boundText;
@@ -50,9 +51,32 @@ namespace BasicWPF
             {
                 BoundText = null;
             }
-
-
         }
+        //Binding this to a button that opens a filepath and returns the name of the file picked.
+        private void btnOpenFile_Click(object sender, RoutedEventArgs e)
+        {
+
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "C# Source Files | *.cs"; //This filters is so it shows ANY files with .cs at the end.
+            fileDialog.InitialDirectory = "C:\\Users\\Amanda\\source\\repos"; //chooses what folder we start in.
+            fileDialog.Title = "Nu SKAL du vælge .cs fil(er)! :)";
+            //fileDialog.Multiselect = true;
+
+            bool? success = fileDialog.ShowDialog();
+            if (success == true)
+
+            {
+                string path = fileDialog.FileName;
+                string fileName = fileDialog.SafeFileName; // Shows only the Safe File Name
+                tbResult.Text = fileName;
+            }
+            else
+            {
+                //didn't pick anything!
+            }
+        }
+
+        
 
         private void OnPropertyChanged([CallerMemberName]string propertyName = null)
         {
