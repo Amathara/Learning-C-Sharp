@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using static System.Net.Mime.MediaTypeNames;
 
+
 namespace BasicWPF
 {
     /// <summary>
@@ -43,6 +44,7 @@ namespace BasicWPF
                 OnPropertyChanged();
             }
         }
+
         private ImageSource _boundGif;
 
         public ImageSource BoundGif
@@ -149,7 +151,22 @@ namespace BasicWPF
                 //didn't pick anything!
             }
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            string path = @"E:\Downloads\hopper.gif";
 
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = new Uri(path, UriKind.Absolute);
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.EndInit();
+
+            // Make sure we are clearing other gif control
+            WpfAnimatedGif.ImageBehavior.SetAnimatedSource(GifImageControl, null);
+
+            // Set gif to GifImageControl1 — only once
+            WpfAnimatedGif.ImageBehavior.SetAnimatedSource(GifImageControl1, image);
+        }
         private void OnPropertyChanged([CallerMemberName]string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

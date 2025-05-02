@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:BasicWPF"
         xmlns:wpfAnimatedGif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="E:\\Downloads\Stars.png" />
@@ -21,7 +22,7 @@
         <Button Grid.Row="1" Name="BtnSet" Content="Set" Width="100" Height="40" Background="DarkSeaGreen"
                 Click="btnSet_Click"/>
 
-        <TextBlock Grid.Row="2" Name="tbResult" FontSize="16" Text="{Binding BoundText}"
+        <TextBlock Grid.Row="2" Name="tbResult" FontSize="16" Text="{Binding BoundText}" Foreground="AliceBlue"
                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Button Name ="btnOpenFile" Content="Open File" HorizontalAlignment="Center" Margin="0,114,0,0" Grid.Row="1" VerticalAlignment="Top"
                 Click="btnOpenFile_Click"/>
@@ -32,6 +33,7 @@ Click="btnOpenGif_Click"/>
 
         <Image HorizontalAlignment="Left" Height="150" Margin="20,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" Source="{Binding BoundImage}" Grid.RowSpan="2" />
         <Image Name ="GifImageControl" HorizontalAlignment="Left" Height="150" Margin="631,0,0,0" VerticalAlignment="Top" Width="150"  Grid.Row="1" Grid.RowSpan="2" />
+        <Image x:Name ="GifImageControl1" HorizontalAlignment="Left" Height="40" Stretch="Uniform" Margin="360,10,0,0" VerticalAlignment="Top" Width="150" Grid.Row="1"/>
 
 
 
