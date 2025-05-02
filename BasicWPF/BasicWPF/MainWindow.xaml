@@ -13,10 +13,12 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBox Name="textInput" VerticalContentAlignment="Center" Width="250" Height="40"
-                 FontSize="16" Text="{Binding BoundText, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"/>
+                 FontSize="16" Text="{Binding BoundText, UpdateSourceTrigger=Default, Mode=OneWayToSource}"/>
         <Button Grid.Row="1" Name="BtnSet" Content="Set" Width="100" Height="40" Background="DarkSeaGreen"
                 Click="btnSet_Click"/>
+
         <TextBlock Grid.Row="2" Name="tbResult" FontSize="16" Text="{Binding BoundText}"
                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="485,0,0,0" Grid.Row="1" VerticalAlignment="Center"/>
     </Grid>
 </Window>

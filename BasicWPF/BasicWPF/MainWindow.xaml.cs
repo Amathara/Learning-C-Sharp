@@ -40,8 +40,18 @@ namespace BasicWPF
         }
         private void btnSet_Click(object sender, RoutedEventArgs e)
         {
-            BoundText = "Set From Code";
-            MessageBox.Show("Your Message here!");
+            
+           MessageBoxResult result = MessageBox.Show("Vil du skrive den tekst?", "PAS PÅ!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                BoundText = boundText;
+            }
+            else
+            {
+                BoundText = null;
+            }
+
+
         }
 
         private void OnPropertyChanged([CallerMemberName]string propertyName = null)
