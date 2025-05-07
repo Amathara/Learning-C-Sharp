@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml.Linq;
 using WpfTestApp.MVVM.Model;
 
@@ -54,7 +55,12 @@ namespace WpfTestApp.MVVM.ViewModel
 
         private void DeleteItem()
         {
-            Items.Remove(SelectedItem);
+            MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette denne genstand?", "PAS PÅ!", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.OK)
+            {
+                Items.Remove(SelectedItem);
+            }
+            
         }
 
         private void Save()
