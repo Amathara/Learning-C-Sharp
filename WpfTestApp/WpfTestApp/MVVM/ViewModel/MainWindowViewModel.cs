@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using WpfTestApp.MVVM.Model;
 
 namespace WpfTestApp.MVVM.ViewModel
@@ -42,10 +43,13 @@ namespace WpfTestApp.MVVM.ViewModel
         {
             Items.Add(new Item
             {
-                Name = "New Item",
-                Id = "AA0000",
-                Quantity = 0
+                Id = 0000,
+                Name = "Navn",
+                Condition = 0,
+                NeedsApproval = 0,
+                InWarehouse = 0
             });
+           
         }
 
         private void DeleteItem()
