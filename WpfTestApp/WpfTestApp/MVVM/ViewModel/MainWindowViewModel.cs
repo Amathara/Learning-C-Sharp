@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Xml.Linq;
 using WpfTestApp.MVVM.Model;
+using WpfTestApp.MVVM.Model.RP.Repo;
+
 
 namespace WpfTestApp.MVVM.ViewModel
 {
     internal class MainWindowViewModel : ViewModelBase
     {
+        private readonly JsonItemRepo _itemRepo; //Initialize the jsonFileRepo
+
         public ObservableCollection<Item> Items { get; set; }
 
         public RelayCommand AddCommand => new RelayCommand(execute => AddItem());
@@ -23,6 +27,10 @@ namespace WpfTestApp.MVVM.ViewModel
         public MainWindowViewModel()
         {
             Items = new ObservableCollection<Item>();
+            _itemRepo = new JsonItemRepo("Items.txt");//Enable it to do stuff with the car text file.
+            LoadItems();
+
+
         }
 
 
@@ -49,6 +57,8 @@ namespace WpfTestApp.MVVM.ViewModel
                 Condition = 0,
                 NeedsApproval = 0,
                 InWarehouse = 0
+
+
             });
            
         }
@@ -65,11 +75,21 @@ namespace WpfTestApp.MVVM.ViewModel
 
         private void Save()
         {
-            //save to file/db
+            _itemRepo.SaveItems(Items.ToList());  // Convert ObservableCollection to List
         }
         private bool CanSave()
         {
             return true;
+        }
+        private void LoadItems()
+        {
+            var itemsFromFile = _itemRepo.GetAllItems(); // Get items from the repo
+            Items.Clear(); // Clear current items, if any
+
+            foreach (var item in itemsFromFile)  // Iterate through the items
+            {
+                Items.Add(item);  // Add each item to ObservableCollection
+            }
         }
     }
 }
