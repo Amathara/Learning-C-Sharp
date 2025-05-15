@@ -10,7 +10,7 @@ using System.Windows;
 using System.Xml.Linq;
 using WpfTestApp.MVVM.Model;
 using WpfTestApp.MVVM.Model.RP.Repo;
-
+using WpfHelpers;
 
 namespace WpfTestApp.MVVM.ViewModel
 {
