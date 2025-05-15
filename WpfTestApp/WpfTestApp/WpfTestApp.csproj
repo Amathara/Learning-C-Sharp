@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ClassLibraries\WpfHelpers\WpfHelpers\WpfHelpers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Fønix logo.png" />
   </ItemGroup>
 
