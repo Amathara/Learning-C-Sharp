@@ -23,5 +23,10 @@ namespace WpfTestApp
             MainWindowViewModel vm = new MainWindowViewModel();
             DataContext = vm;
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

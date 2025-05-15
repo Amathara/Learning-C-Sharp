@@ -11,11 +11,28 @@ using System.Xml.Linq;
 using WpfTestApp.MVVM.Model;
 using WpfTestApp.MVVM.Model.RP.Repo;
 using WpfHelpers;
+using System.Windows.Data;
 
 namespace WpfTestApp.MVVM.ViewModel
 {
     internal class MainWindowViewModel : ViewModelBase
     {
+        // Following a turtorial on how to add a textbox:
+        private ICollectionView _itemsView;
+        public ICollectionView ItemsView => _itemsView;
+        private string _textToFilter;
+
+        public string TextToFilter
+        {
+            get { return _textToFilter; }
+            set
+            {
+                _textToFilter = value;
+                OnPropertyChanged();
+                _itemsView?.Refresh(); //This triggers the filtering logic
+            }
+        }
+        // ends here.
         private readonly JsonItemRepo _itemRepo; //Initialize the jsonFileRepo
 
         public ObservableCollection<Item> Items { get; set; }
@@ -29,7 +46,8 @@ namespace WpfTestApp.MVVM.ViewModel
             Items = new ObservableCollection<Item>();
             _itemRepo = new JsonItemRepo("Items.txt");//Enable it to do stuff with the car text file.
             LoadItems();
-
+            _itemsView = CollectionViewSource.GetDefaultView(Items); //For filtering
+            _itemsView.Filter = FilterByNameOrId; // For filtering.
 
         }
 
@@ -91,5 +109,24 @@ namespace WpfTestApp.MVVM.ViewModel
                 Items.Add(item);  // Add each item to ObservableCollection
             }
         }
+
+        // For filtering:
+        private bool FilterByNameOrId(object obj)
+        {
+            if (obj is Item item)
+            {
+                if (string.IsNullOrWhiteSpace(TextToFilter)) //Makes sure that when the box is empty, the grid is not filtering.
+                    return true;
+
+                string filter = TextToFilter.ToLower();
+
+                // Check both Name and Id
+                return (item.Name?.ToLower().Contains(filter) ?? false)
+                    || item.Id.ToString().Contains(filter);
+            }
+
+            return false;
+        }
     }
+
 }

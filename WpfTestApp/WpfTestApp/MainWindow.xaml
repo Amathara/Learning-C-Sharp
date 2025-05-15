@@ -62,8 +62,8 @@ Background="Honeydew"/>
                 <Button Content="Gem" Width="75" Height="30" Margin="0,0,5,0" Background="AliceBlue"
         Command="{Binding SaveCommand}"/>
             </StackPanel>
-            
-            
+
+
             <TabControl Grid.ColumnSpan="2">
 
                 <TabItem Header="Alle" Margin="-2,0,-2,0" Cursor="Hand">
@@ -187,6 +187,9 @@ AutoGenerateColumns="False" Grid.ColumnSpan="3">
             </TabControl>
 
         </Grid>
+        <TextBox Text="{Binding TextToFilter, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="437,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Søg" HorizontalAlignment="Left" Margin="407,19,0,0" VerticalAlignment="Top" Background="White"/>
+
 
 
 
