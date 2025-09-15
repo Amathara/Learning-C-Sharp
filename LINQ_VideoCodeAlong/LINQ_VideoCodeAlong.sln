@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_VideoCodeAlong", "LINQ_VideoCodeAlong\LINQ_VideoCodeAlong.csproj", "{366231BC-5937-4CB2-B1DE-6C5DE1873D7D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{366231BC-5937-4CB2-B1DE-6C5DE1873D7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{366231BC-5937-4CB2-B1DE-6C5DE1873D7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{366231BC-5937-4CB2-B1DE-6C5DE1873D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{366231BC-5937-4CB2-B1DE-6C5DE1873D7D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {844600ED-9F07-422B-9253-F0221CD62B4C}
+	EndGlobalSection
+EndGlobal
